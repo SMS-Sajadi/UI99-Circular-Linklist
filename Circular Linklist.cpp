@@ -93,7 +93,18 @@ class Circular_linked_list{
 			size++;
 		}
 		void pop();
-		void pop(int data);
+		void pop(int data)
+		{
+			int i = 0;
+			for (i = 0; i < this->size; i++)
+			{
+				if (current->get_data() != data)
+					current = current->get_next();
+				else break;
+			}
+			if (i == size) return;
+			pop();
+		}
 		void push_after(int new_data, int pa_data)
 		{
 			int i;
@@ -106,7 +117,7 @@ class Circular_linked_list{
 			if (i == size) return;
 			push(new_data);
 		}
-		void push_befor(int new_data,int pb_data);
+		void push_before(int new_data,int pb_data);
 		void print();
 
 
