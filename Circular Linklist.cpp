@@ -54,11 +54,22 @@ class Circular_linked_list{
 			this->current = nullptr;
 			this->size = 0;
 		}
-		//add getter and setter functions here
-		/*
-		
-			here
-		*/
+		int getsize()
+		{
+			return this->size;
+		}
+		void setsize(int m)
+		{
+			this->size = m;
+		}
+		node* getcurrent()
+		{
+			return this->current;
+		}
+		void setcurrent(node* p)
+		{
+			this->current = p;
+		}
 		void push(int data)
 		{
 			if (size == 0)
