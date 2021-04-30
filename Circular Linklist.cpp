@@ -37,8 +37,23 @@ class Circular_linked_list{
 		int size;
 		node* current;
 	public:
-		Circular_linked_list();
-		~Circular_linked_list();
+	Circular_linked_list()
+	{
+		this->current = nullptr;
+		this->size = 0;
+	}
+	~Circular_linked_list()
+	{
+		node* temp = this->current;
+		for (int i = 0; i < this->size; i++)
+		{
+			current = current->get_next();
+			delete temp;
+			temp = current;
+		}
+		this->current = nullptr;
+		this->size = 0;
+	}
 		//add getter and setter functions here
 		/*
 		
