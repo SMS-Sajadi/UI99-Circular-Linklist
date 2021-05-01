@@ -103,7 +103,23 @@ class Circular_linked_list{
 			current = newnode;
 			size++;
 		}
-		void pop();
+		void pop()
+		{
+			if (this->size == 0) return;
+			if (this->size == 1)
+			{
+				delete current;
+				current = NULL;
+				this->size--;
+			}
+			if (this->size > 1)
+			{
+				current->get_prev()->set_next(current->get_next());
+				current->get_next()->set_prev(current->get_prev());
+				this->size--;
+				current = current->get_next();
+			}
+		}
 		void pop(int data)
 		{
 			int i = 0;
