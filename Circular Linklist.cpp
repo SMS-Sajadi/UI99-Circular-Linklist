@@ -166,9 +166,21 @@ class Circular_linked_list{
 			}
 			return;
 		}
-		void print();
-
-
+		void print()
+		{
+			int i = 0;
+			if ((this->size) == 1)
+			{
+				cout << current->get_data();
+			}
+			else
+				while (i != (this->size))
+				{
+					cout << current->get_data() << " ";
+					current = current->get_next();
+					i++;
+				}
+		}
 }
 
 
