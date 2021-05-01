@@ -128,7 +128,44 @@ class Circular_linked_list{
 			if (i == size) return;
 			push(new_data);
 		}
-		void push_before(int new_data,int pb_data);
+		void push_before(int new_data, int pb_data)
+		{
+			node* newnode = new node;
+			newnode->set_data(new_data);
+			if (this->getsize() == 0)
+			{
+				push(new_data);
+				return;
+			}
+			if ((this->size) == 1)
+			{
+				current->set_prev(newnode);
+				newnode->set_next(current);
+				newnode->set_prev(current);
+				current->set_next(newnode);
+				current = newnode;
+				this->size++;
+				return;
+			}
+			else
+			{
+				while (current)
+				{
+					if (current->get_data() == pb_data)
+					{
+						newnode->set_prev(current->get_prev());
+						current->get_prev()->set_next(newnode);
+						current->set_prev(newnode);
+						newnode->set_next(current);
+						current = newnode;
+						break;
+					}
+					current = current->get_next();
+				}
+				this->size++;
+			}
+			return;
+		}
 		void print();
 
 
