@@ -7,7 +7,7 @@ class node{
 		node* next;
 		node* prev;
 	public:
-		void set_data(int data)
+	void set_data(int data)
 	{
 		this->data = data;
 	}
@@ -109,7 +109,7 @@ class Circular_linked_list{
 			if (this->size == 1)
 			{
 				delete current;
-				current = NULL;
+				current = nullptr;
 				this->size--;
 			}
 			if (this->size > 1)
@@ -153,7 +153,7 @@ class Circular_linked_list{
 				push(new_data);
 				return;
 			}
-			if ((this->size) == 1)
+			if (this->size == 1)
 			{
 				current->set_prev(newnode);
 				newnode->set_next(current);
@@ -163,46 +163,77 @@ class Circular_linked_list{
 				this->size++;
 				return;
 			}
-			else
+			for(int i = 0; i < this->getsize(); i++)
 			{
-				while (current)
+				if (current->get_data() == pb_data)
 				{
-					if (current->get_data() == pb_data)
-					{
-						newnode->set_prev(current->get_prev());
-						current->get_prev()->set_next(newnode);
-						current->set_prev(newnode);
-						newnode->set_next(current);
-						current = newnode;
-						break;
-					}
-					current = current->get_next();
+					newnode->set_prev(current->get_prev());
+					current->get_prev()->set_next(newnode);
+					current->set_prev(newnode);
+					newnode->set_next(current);
+					current = newnode;
+					this->size++;
+					break;
 				}
-				this->size++;
+				current = current->get_next();
 			}
-			return;
 		}
 		void print()
 		{
 			int i = 0;
 			if ((this->size) == 1)
 			{
-				cout << current->get_data();
+				cout << current->get_data() << endl;
 			}
 			else
+			{
 				while (i != (this->size))
 				{
 					cout << current->get_data() << " ";
 					current = current->get_next();
 					i++;
 				}
+				cout << endl;
+			}
 		}
-}
-
-
+};
 
 int main(){
-
-
-
+	Circular_linked_list ll;
+	ll.push(12);
+	ll.push(14);
+	ll.print();
+	ll.push_after(24, 12);
+	ll.print();
+	ll.push_after(26, 13);
+	ll.print();
+	ll.push_before(36, 12);
+	ll.print();
+	ll.pop();
+	ll.print();
+	ll.pop(12);
+	ll.print();
+	ll.push_before(48, 12);
+	ll.print();
+	ll.push(23);
+	ll.print();
+	ll.pop();
+	ll.print();
+	ll.pop(24);
+	ll.print();
+	ll.pop(72);
+	ll.print();
+	ll.push_after(23, 45);
+	ll.print();
+	ll.push(47);
+	ll.print();
+	ll.push_before(43, 47);
+	ll.print();
+	ll.push_after(49, 47);
+	ll.print();
+	ll.pop(47);
+	ll.print();
+	ll.pop();
+	ll.print();
+	return 0;
 }
