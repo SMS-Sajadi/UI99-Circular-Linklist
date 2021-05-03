@@ -1,8 +1,12 @@
+//This code is written by Bsc.s of Isfahan University in 2021
+//The repository address is :
+//https://github.com/SMS-Sajadi/UI99-Circular-Linklist.git
+//Seyed Mohammad Soroush Sajadi_993613035
+//mahroonoohi_993613061
+
 #include <iostream>
 using namespace std;
-/*
-  "mahroonoohi_993613061"
-*/
+
 class node{
 	private:
 		int data;
