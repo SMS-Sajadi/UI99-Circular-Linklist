@@ -120,10 +120,12 @@ class Circular_linked_list{
 			}
 			if (this->size > 1)
 			{
+				node* temp = current;
 				current->get_prev()->set_next(current->get_next());
 				current->get_next()->set_prev(current->get_prev());
 				this->size--;
 				current = current->get_next();
+				delete temp;
 			}
 		}
 		void pop(int data)
